@@ -2,9 +2,11 @@
   <ion-content padding="true" class="has-header">
     <div id="sales-container4">
       <ion-list id="sales-list2">
-        <ion-item id="sales-list-item21">Item 1</ion-item>
-        <ion-item id="sales-list-item22">Item 2</ion-item>
-        <ion-item id="sales-list-item23">Item 3</ion-item>
+        <ion-item ng-repeat="sale in sales">
+          Amt: {{sale.amt}}
+          Fish: {{getFish(sale.fish).name}}
+        </ion-item>
+
       </ion-list>
     </div>
     <button id="sales-button2" class="button button-balanced button-block icon-left ion-android-add">Add New Sale</button>

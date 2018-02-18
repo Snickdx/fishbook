@@ -105,26 +105,94 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('inventoryCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
-
+.controller('inventoryCtrl', ['$scope', '$stateParams', 'FishService',
+function ($scope, $stateParams, FishService) {
+  $scope.fishmap = {};
+  
+  $scope.vendor = "vend0001";//simulating auth
+  
+  FishService.getFishMap().then(map=>$scope.fishmap=map);
+  
+  $scope.inventory = {};
+  
+  FishService.getFishes($scope.vendor).then(obj=>{
+     $scope.inventory = obj;
+  });
+  
+  $scope.getFish = id =>{
+    return $scope.fishmap[id];
+  };
+  
+  $scope.getImage = fish=>{
+    return $scope.fishmap[fish].img;
+  };
+  
+  
 }])
 
-.controller('salesCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
-
+.controller('salesCtrl', ['$scope', '$stateParams', 'FishService',
+function ($scope, $stateParams, FishService) {
+  $scope.fishmap = {};
+  
+  $scope.vendor = "vend001";
+  
+  FishService.getFishMap().then(map=>$scope.fishmap=map);
+  $scope.sales = FishService.getSales($scope.vendor);
+  
+  $scope.getFish = id =>{
+    return $scope.fishmap[id];
+  };
+  
 }])
 
-.controller('catchLogCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
-
-}])
+.controller('catchLogCtrl', ['$scope', '$stateParams', '$ionicModal', 'FishService',
+  function ($scope, $stateParams, $ionicModal, FishService) {
+  
+    $scope.vendor = "vend001";
+    
+    $scope.fishmap = {};
+    
+    $scope.modal = null;
+    
+    FishService.getFishMap().then(map=>$scope.fishmap=map);
+    
+    $scope.catches = FishService.getCatches($scope.vendor);
+    
+    $scope.getImage = fish=>{
+      return $scope.fishmap[fish].img;
+    };
+    
+    $scope.newCatch = {
+      fish:"",
+      amt: "",
+      bycatch:false
+    };
+    
+    $scope.contacts = [
+      { name: 'Gordon Freeman' },
+      { name: 'Barney Calhoun' },
+      { name: 'Lamarr the Headcrab' },
+    ];
+    
+    $ionicModal.fromTemplateUrl('templates/addCatch.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    
+    $scope.addCatch = function() {
+      let catchObj = {
+        amt: $scope.newCatch.amt,
+        fish:$scope.newCatch.fish,
+        date: new Date().toLocaleDateString(),
+        lat: 343.343,
+        lng: 34.343,
+        bycatch: $scope.newCatch.bycatch
+      };
+      FishService.addCatch($scope.vendor, catchObj);
+      $scope.modal.hide();
+    };
+    
+  
+}]);

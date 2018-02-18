@@ -1,0 +1,38 @@
+<ion-modal-view style="background-color: #3498DB">
+  <ion-header-bar class="bar bar-header bar-balanced">
+    <h1 class="title">New Catch</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Fish
+        </div>
+
+        <select ng-model="newCatch.fish">
+          <option ng-repeat="(fishKey, fishVal) in fishmap" value="{{fishKey}}">{{fishVal.name}}</option>
+        </select>
+      </label>
+      <label class="item item-input" >
+        <span class="input-label">Amount</span>
+        <input ng-model="newCatch.amt" type="text">
+      </label>
+      <ul class="list">
+
+        <li class="item item-toggle">
+          HTML5
+          <label class="toggle toggle-assertive">
+            <input type="checkbox" ng-model="newCatch.bycatch">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </li>
+
+      </ul>
+      <button class="button button-full button-balanced" ng-click="addCatch()">Add</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

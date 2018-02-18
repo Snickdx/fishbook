@@ -1,16 +1,14 @@
 <ion-view title="Catch Log" id="page4">
   <ion-content padding="true" class="has-header">
     <ion-list id="catchLog-list5">
-      <ion-item class="item-thumbnail-left" id="catchLog-list-item28">
-        <h2>Item</h2>
-      </ion-item>
-      <ion-item class="item-thumbnail-left" id="catchLog-list-item30">
-        <h2>Item</h2>
-      </ion-item>
-      <ion-item class="item-thumbnail-left" id="catchLog-list-item29">
-        <h2>Item</h2>
+      <ion-item class="item-thumbnail-left" id="catchLog-list-item28" ng-repeat="catch in catches">
+        <img ng-src="{{getImage(catch.fish)}}">
+        <h2>{{catch.name}}</h2>
+        <p>Amount: {{catch.amt}}</p>
+        <p>Date {{catch.date}}</p>
+        <p ng-if="catch.bycatch" class="assertive"><i class = "icon icon ion-alert-circled"></i> By Catch</p>
       </ion-item>
     </ion-list>
-    <button id="catchLog-button3" class="button button-balanced button-block">Tap me!</button>
+    <button id="catchLog-button3" class="button button-balanced button-block" ng-click="modal.show()">Add Catch</button>
   </ion-content>
 </ion-view>

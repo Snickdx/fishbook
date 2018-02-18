@@ -2,14 +2,10 @@
   <ion-content padding="true" class="has-header">
     <div id="inventory-container3">
       <ion-list id="inventory-list1">
-        <ion-item class="item-avatar" id="inventory-list-item27">
-          <h2>Item</h2>
-        </ion-item>
-        <ion-item class="item-avatar" id="inventory-list-item26">
-          <h2>Item</h2>
-        </ion-item>
-        <ion-item class="item-avatar" id="inventory-list-item25">
-          <h2>Item</h2>
+        <ion-item class="item-avatar" ng-repeat="(key,item) in inventory">
+          <img ng-src="{{getImage(key)}}">
+          <h2>Amt: {{item.amt}}</h2>
+          <h2>Amt: {{item.price}}</h2>
         </ion-item>
       </ion-list>
     </div>

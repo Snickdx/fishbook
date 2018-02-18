@@ -48,7 +48,7 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "a73e17ebbaee0fe24fef34a0e0bac229"
+    "revision": "ede60d92bf56c5368cc56b3050c7c7e8"
   },
   {
     "url": "lib/angular-animate/angular-animate.min.js.map",
@@ -105,6 +105,34 @@ workboxSW.precache([
   {
     "url": "lib/angular-ui-router/README.md",
     "revision": "1fb5bbee72ee388037c30f4f35686b24"
+  },
+  {
+    "url": "lib/angular/angular-csp.css",
+    "revision": "5d7bf1728c2447221cad6c6263557306"
+  },
+  {
+    "url": "lib/angular/angular.min.js.gzip",
+    "revision": "a249471257b60c7a5e5cbf9ca8dacd14"
+  },
+  {
+    "url": "lib/angular/angular.min.js.map",
+    "revision": "3e15eed1dfac2a34145567e9753f7f4e"
+  },
+  {
+    "url": "lib/angular/bower.json",
+    "revision": "bad5911084089afd8e70b67b97b35e62"
+  },
+  {
+    "url": "lib/angular/LICENSE.md",
+    "revision": "0d83982330e37f011a2cef9b15cb43aa"
+  },
+  {
+    "url": "lib/angular/package.json",
+    "revision": "772f0ac6a146452ec8215d5fff4122a4"
+  },
+  {
+    "url": "lib/angular/README.md",
+    "revision": "0d57148eaf38d58d1519a0e71c3f9a16"
   },
   {
     "url": "lib/angularfire/bower.json",
@@ -1323,8 +1351,12 @@ workboxSW.precache([
     "revision": "de6bf602a98a7b89cd0363aa61aaf55f"
   },
   {
+    "url": "templates/addCatch.html",
+    "revision": "7ccc95017ab3686a73f265c95db9154c"
+  },
+  {
     "url": "templates/catchLog.html",
-    "revision": "ef5f4e88618b9814da4d85c57c4958dc"
+    "revision": "a18d0a097808c76426821fde948c0655"
   },
   {
     "url": "templates/demandMap.html",
