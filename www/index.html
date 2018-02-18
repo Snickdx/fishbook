@@ -48,32 +48,57 @@
         padding-left:40px;
       }
     </style>
-    <!--<script>-->
-      <!--if ('serviceWorker' in navigator) {-->
-        <!--navigator.serviceWorker.register('/sw.js', {scope:"."})-->
-          <!--.then(function(registration) {-->
-            <!--registration.addEventListener('updatefound', function() {-->
-              <!--// If updatefound is fired, it means that there's-->
-              <!--// a new service worker being installed.-->
-              <!--var installingWorker = registration.installing;-->
-              <!--console.log('A new service worker is being installed:',-->
-                <!--installingWorker);-->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', {scope:"."})
+          .then(function(registration) {
+            registration.addEventListener('updatefound', function() {
+              // If updatefound is fired, it means that there's
+              // a new service worker being installed.
+              var installingWorker = registration.installing;
+              console.log('A new service worker is being installed:',
+                installingWorker);
 
-              <!--// You can listen for changes to the installing service worker's-->
-              <!--// state via installingWorker.onstatechange-->
-            <!--});-->
-          <!--})-->
-          <!--.catch(function(error) {-->
-            <!--console.log('Service worker registration failed:', error);-->
-          <!--});-->
-      <!--} else {-->
-        <!--console.log('Service workers are not supported.');-->
-      <!--}-->
-    <!--</script>-->
+              registration.pushManager.getSubscription()
+                .then(function(subscription) {
+                  // Enable any UI which subscribes / unsubscribes from
+                  // push messages.
+                  var pushButton = document.querySelector('.js-push-button');
+                  pushButton.disabled = false;
+
+                  if (!subscription) {
+                    // We aren't subscribed to push, so set UI
+                    // to allow the user to enable push
+                    return;
+                  }
+
+                  // Keep your server in sync with the latest subscriptionId
+                  sendSubscriptionToServer(subscription);
+
+                  // Set your UI to show they have subscribed for
+                  // push messages
+                  pushButton.textContent = 'Disable Push Messages';
+                  isPushEnabled = true;
+                })
+                .catch(function(err) {
+                  console.warn('Error during getSubscription()', err);
+                });
+
+              // You can listen for changes to the installing service worker's
+              // state via installingWorker.onstatechange
+            });
+          })
+          .catch(function(error) {
+            console.log('Service worker registration failed:', error);
+          });
+      } else {
+        console.log('Service workers are not supported.');
+      }
+    </script>
 
     <!-- inject:js -->
     <!-- endinject -->
-
+    <script src="js/lib.js"></script>
     <script src="lib/firebase/firebase.js"></script>
     <script src="lib/ngmap/build/scripts/ng-map.js"></script>
     <script src="lib/angularfire/dist/angularfire.js"></script>

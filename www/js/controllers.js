@@ -145,12 +145,21 @@ function ($scope, $stateParams, FishService) {
   
 }])
 
-.controller('catchLogCtrl', ['$scope', '$stateParams', '$ionicModal', 'FishService',
-  function ($scope, $stateParams, $ionicModal, FishService) {
+.controller('catchLogCtrl', ['$scope', '$stateParams', '$ionicModal', 'FishService','IonicToast',
+  function ($scope, $stateParams, $ionicModal, FishService, IonicToast) {
+    $scope.online = truel;
+  
+    Lib.monitorNetworkState(()=>{
+      $scope.online = true;
+    }, ()=>{
+      $scope.online = false;
+    });
   
     $scope.vendor = "vend001";
     
     $scope.fishmap = {};
+    
+    $scope.db = Lib.initDB('CatchQueue', {catch: 'amt, bycatch, date, fish, lat, lng'});
     
     $scope.modal = null;
     
@@ -181,7 +190,7 @@ function ($scope, $stateParams, FishService) {
       $scope.modal = modal;
     });
     
-    $scope.addCatch = function() {
+    $scope.addCatch = async function() {
       let catchObj = {
         amt: $scope.newCatch.amt,
         fish:$scope.newCatch.fish,
@@ -190,7 +199,16 @@ function ($scope, $stateParams, FishService) {
         lng: 34.343,
         bycatch: $scope.newCatch.bycatch
       };
-      FishService.addCatch($scope.vendor, catchObj);
+      
+      if(!$scope.online){
+  
+        let reg = await navigator.serviceWorker.ready;
+        $scope.db.events.add(newevent);
+        reg.sync.register('EventSync');
+        ionicToast.show("App is offline we'll send your request in the background", 'bottom', false, 4000);
+      }else{
+        FishService.addCatch($scope.vendor, catchObj);
+      }
       $scope.modal.hide();
     };
     

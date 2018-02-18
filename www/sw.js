@@ -1,4 +1,4 @@
-importScripts('workbox-sw.prod.v2.1.2.js');
+importScripts('workbox-sw.prod.v2.1.2.js', 'js/lib.js', 'lib/dexie/dist/dexie.js');
 
 const workboxSW = new WorkboxSW({clientsClaim: true});
 workboxSW.precache([
@@ -48,7 +48,7 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "ede60d92bf56c5368cc56b3050c7c7e8"
+    "revision": "ff2f0da43cfd83c42c30707b106d1413"
   },
   {
     "url": "lib/angular-animate/angular-animate.min.js.map",
@@ -141,6 +141,90 @@ workboxSW.precache([
   {
     "url": "lib/angularfire/README.md",
     "revision": "f1ceea65c20bd4bafd07ab1df1652494"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Observable/api.d.ts",
+    "revision": "da77e54b80febc7c6cf9376b53a9da14"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Observable/dist/dexie-observable.d.ts",
+    "revision": "e131300c7a1673eb1e068a2cfb876fa0"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Observable/dist/dexie-observable.es.js.map",
+    "revision": "efd2d7adbd63cd5b826604dcdf361107"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Observable/dist/dexie-observable.js.map",
+    "revision": "41697a8010a843ec061a66e502dc22e7"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Observable/dist/dexie-observable.min.js.map",
+    "revision": "0760ff7da35d6b6d3891675df2efb7e5"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Observable/README.md",
+    "revision": "5124a5318930b316f4c2ca3cc02bc3ee"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Syncable/api.d.ts",
+    "revision": "445bea0773121306ac6de8188977676c"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Syncable/dist/dexie-syncable.d.ts",
+    "revision": "59ecca4e30c38309a4607be68f232601"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Syncable/dist/dexie-syncable.es.js.map",
+    "revision": "3ff671614a9dbd7307c22e79cc646de4"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Syncable/dist/dexie-syncable.js.map",
+    "revision": "cbed0fb449dcabdcace8aea700c6f149"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Syncable/dist/dexie-syncable.min.js.map",
+    "revision": "6be5d1046b7c070906ec77f29896dd0b"
+  },
+  {
+    "url": "lib/dexie/addons/Dexie.Syncable/README.md",
+    "revision": "1631d2cc17e18545bfe44781df491760"
+  },
+  {
+    "url": "lib/dexie/bower.json",
+    "revision": "61a8dddc8f037e7fb1b6394bdf47b52e"
+  },
+  {
+    "url": "lib/dexie/CODE_OF_CONDUCT.md",
+    "revision": "d48e7bdea35b71ffc08b26120748a0c6"
+  },
+  {
+    "url": "lib/dexie/CONTRIBUTING.md",
+    "revision": "89128041d55c90bd43abd87048cd727f"
+  },
+  {
+    "url": "lib/dexie/dist/dexie.d.ts",
+    "revision": "a4ed05efe674733bc82df9c7fe2367ff"
+  },
+  {
+    "url": "lib/dexie/dist/dexie.es.js.map",
+    "revision": "785f5ca8627e6cf7d72d88521d0e09f7"
+  },
+  {
+    "url": "lib/dexie/dist/dexie.js.map",
+    "revision": "b6eee0bb7c73db2061fca1a0d786d894"
+  },
+  {
+    "url": "lib/dexie/dist/dexie.min.js.map",
+    "revision": "c588fd5c3cc026c561c55651ae396dd1"
+  },
+  {
+    "url": "lib/dexie/package.json",
+    "revision": "f02cc06f06142f83efd8c7a0cb865315"
+  },
+  {
+    "url": "lib/dexie/README.md",
+    "revision": "98f88dc7643c2f9a7e247cd61307f65d"
   },
   {
     "url": "lib/firebase/bower.json",
@@ -1352,23 +1436,23 @@ workboxSW.precache([
   },
   {
     "url": "templates/addCatch.html",
-    "revision": "7ccc95017ab3686a73f265c95db9154c"
+    "revision": "a42d6a716e8020200c922a2d381087fc"
   },
   {
     "url": "templates/catchLog.html",
-    "revision": "a18d0a097808c76426821fde948c0655"
+    "revision": "5e320a76f62dea37bf4b9d3193ba91d6"
   },
   {
     "url": "templates/demandMap.html",
-    "revision": "a96fc02b1167cc9414389ab95972dce9"
+    "revision": "e50631dbcf95a9ca2dfb19c1f049b423"
   },
   {
     "url": "templates/inventory.html",
-    "revision": "1082ee57ae5fe2ebb15d66d863b451d6"
+    "revision": "3726371e6858cf6bb4be29a5652da5d8"
   },
   {
     "url": "templates/sales.html",
-    "revision": "a3d94a0a21974606e39ae58ebdc63f3f"
+    "revision": "6aa8210ccbd0d1a0da9b88f2c04b1eb2"
   },
   {
     "url": "templates/tabsController.html",
@@ -1386,11 +1470,38 @@ workboxSW.precache([
 
 
 
+self.addEventListener('sync', function(event) {
+  // let endpoint = "https://lilys-aaf3d.firebaseio.com/vendorcatch";
+  let endpoint = "https://snickdx.me/catch";
+  
+  event.waitUntil(new Promise(async (resolve, reject)=>{
+    try{
+      let db = Lib.initDB('CatchQueue', {catch: 'amt, bycatch, date, fish, lat, lng'});
+      
+      await db.catch
+        .each (async function (catchObj) {
+          Lib.fetchPost(endpoint, catchObj);
+        }).then(()=>{
+          console.log("Queued Events Sent!");
+          resolve(db.events.clear());
+          self.registration.showNotification("Event Success", {
+            body: "Your event was sent successfully in the background!",
+            icon: "images/android-desktop.png",
+            badge: "images/cal.png"
+          });
+        });
+    }catch(e){
+      reject(e)
+    }
+  }));
+  
+});
+
 
 self.addEventListener('push', function(event) {
-  var title = 'Yay a message.';
-  var body = 'We have received a push message.';
-  var icon = 'images/android-desktop.png';
+  var title = 'Request Sen!';
+  var body = 'You data was successfully sent!';
+  var icon = 'img/ionic.png';
   var tag = 'simple-push-example-tag';
   event.waitUntil(
     self.registration.showNotification(title, {

@@ -14,7 +14,8 @@
     "ngmap": "^1.18.4",
     "ngstorage": "^0.3.11",
     "ionic-toast": "^0.4.1",
-    "angular-sanitize": "^1.6.4"
+    "angular-sanitize": "^1.6.4",
+    "dexie": "^2.0.1"
   },
   "devDependencies": {
     "angular": "^1.6.4",
