@@ -1,0 +1,12 @@
+<ion-view title="Demand Map" id="page2">
+  <ion-content class="has-header" style="overflow-y: hidden">
+    <div  style="height: 85%; width: 100%" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+      <ng-map zoom="10" style="height: 100%; width: 100%"></ng-map>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a ui-sref="tabsController.vendorMap()" id="demandMap-button5" class="button button-balanced button-block icon-left ion-arrow-swap">Vendor Map</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

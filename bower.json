@@ -1,7 +1,26 @@
 {
   "name": "HelloIonic",
   "private": "true",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularfire": "^2.3.0",
+    "firebase": "^3.8.0",
+    "ngmap": "^1.18.4",
+    "ngstorage": "^0.3.11",
+    "ionic-toast": "^0.4.1",
+    "angular-sanitize": "^1.6.4"
+  },
   "devDependencies": {
+    "angular": "^1.6.4",
+    "angular-material": "^1.1.4",
+    "angularfire": "^2.3.0",
+    "firebase": "^3.8.0",
     "ionic": "ionic-team/ionic-bower#1.3.4"
   }
 }

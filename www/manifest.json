@@ -1,10 +1,11 @@
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
+  "name": "Fishbook",
+  "short_name": "Fishbook",
   "start_url": "index.html",
   "display": "standalone",
+  "scope":".",
   "icons": [{
-    "src": "icon.png",
+    "src": "img/ionic.png",
     "sizes": "512x512",
     "type": "image/png"
   }]
