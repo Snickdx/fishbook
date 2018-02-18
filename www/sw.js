@@ -1320,7 +1320,7 @@ workboxSW.precache([
   },
   {
     "url": "manifest.json",
-    "revision": "363f6fbe45f4ad25d87aa2bded657432"
+    "revision": "de6bf602a98a7b89cd0363aa61aaf55f"
   },
   {
     "url": "templates/catchLog.html",
@@ -1328,7 +1328,7 @@ workboxSW.precache([
   },
   {
     "url": "templates/demandMap.html",
-    "revision": "47ab78c32ae8ed7d4e67d1c571fb3224"
+    "revision": "a96fc02b1167cc9414389ab95972dce9"
   },
   {
     "url": "templates/inventory.html",
