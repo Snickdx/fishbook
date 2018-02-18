@@ -145,9 +145,9 @@ function ($scope, $stateParams, FishService) {
   
 }])
 
-.controller('catchLogCtrl', ['$scope', '$stateParams', '$ionicModal', 'FishService','IonicToast',
-  function ($scope, $stateParams, $ionicModal, FishService, IonicToast) {
-    $scope.online = truel;
+.controller('catchLogCtrl', ['$scope', '$stateParams', '$ionicModal', 'FishService','ionicToast',
+  function ($scope, $stateParams, $ionicModal, FishService, ionicToast) {
+    $scope.online = true;
   
     Lib.monitorNetworkState(()=>{
       $scope.online = true;

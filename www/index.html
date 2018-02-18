@@ -59,30 +59,7 @@
               console.log('A new service worker is being installed:',
                 installingWorker);
 
-              registration.pushManager.getSubscription()
-                .then(function(subscription) {
-                  // Enable any UI which subscribes / unsubscribes from
-                  // push messages.
-                  var pushButton = document.querySelector('.js-push-button');
-                  pushButton.disabled = false;
 
-                  if (!subscription) {
-                    // We aren't subscribed to push, so set UI
-                    // to allow the user to enable push
-                    return;
-                  }
-
-                  // Keep your server in sync with the latest subscriptionId
-                  sendSubscriptionToServer(subscription);
-
-                  // Set your UI to show they have subscribed for
-                  // push messages
-                  pushButton.textContent = 'Disable Push Messages';
-                  isPushEnabled = true;
-                })
-                .catch(function(err) {
-                  console.warn('Error during getSubscription()', err);
-                });
 
               // You can listen for changes to the installing service worker's
               // state via installingWorker.onstatechange
@@ -98,6 +75,7 @@
 
     <!-- inject:js -->
     <!-- endinject -->
+    <script src="lib/dexie/dist/dexie.js"></script>
     <script src="js/lib.js"></script>
     <script src="lib/firebase/firebase.js"></script>
     <script src="lib/ngmap/build/scripts/ng-map.js"></script>
