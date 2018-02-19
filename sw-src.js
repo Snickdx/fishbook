@@ -18,11 +18,11 @@ self.addEventListener('sync', function(event) {
           Lib.fetchPost(endpoint, catchObj);
         }).then(()=>{
           console.log("Queued Events Sent!");
-          resolve(db.events.clear());
-          self.registration.showNotification("Event Success", {
-            body: "Your event was sent successfully in the background!",
-            icon: "images/android-desktop.png",
-            badge: "images/cal.png"
+          resolve(db.catch.clear());
+          self.registration.showNotification("Success", {
+            body: "Your data was sent successfully in the background!",
+            icon: "img/ionic.png",
+            badge: "img/ionic.png"
           });
         });
     }catch(e){
@@ -34,7 +34,7 @@ self.addEventListener('sync', function(event) {
 
 
 self.addEventListener('push', function(event) {
-  var title = 'Request Sen!';
+  var title = 'Request Sent!';
   var body = 'You data was successfully sent!';
   var icon = 'img/ionic.png';
   var tag = 'simple-push-example-tag';

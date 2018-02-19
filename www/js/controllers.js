@@ -1,9 +1,11 @@
 angular.module('app.controllers', [])
 
-.controller('demandMapCtrl', ['$scope', '$stateParams', 'NgMap', '$timeout','$http',
-function ($scope, $stateParams, NgMap, $timeout, $http) {
+.controller('demandMapCtrl', ['$scope', '$stateParams', 'NgMap', '$timeout','$http','FB',
+function ($scope, $stateParams, NgMap, $timeout, $http, FB) {
   
   let marker = null;
+  FB.registerSW();
+  FB.enableMessaging();
   
   $scope.map = null;
   
@@ -151,9 +153,11 @@ function ($scope, $stateParams, FishService) {
   
     Lib.monitorNetworkState(()=>{
       $scope.online = true;
+      console.log($scope.online);
     }, ()=>{
       $scope.online = false;
-    });
+      console.log($scope.online);}
+    );
   
     $scope.vendor = "vend001";
     

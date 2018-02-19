@@ -23,7 +23,7 @@ angular.module('app.services', [])
   
   obj.registerSW = () => {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+      navigator.serviceWorker.register('sw.js', {scope:"."}).then(function(reg) {
         
         msg.useServiceWorker(reg);
         reg.onupdatefound = function() {

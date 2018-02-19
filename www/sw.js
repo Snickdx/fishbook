@@ -43,12 +43,84 @@ workboxSW.precache([
     "revision": "8f489cac3eeca3f0e416620f3f5a92bf"
   },
   {
-    "url": "img/ionic.png",
-    "revision": "251ebf03b1c7889cf36cbcbcce8f689e"
+    "url": "img/apple-touch-icon-114x114.png",
+    "revision": "62d048d6cb7e4469143e0f4ad112d650"
+  },
+  {
+    "url": "img/apple-touch-icon-120x120.png",
+    "revision": "4fb55a57439e3ac8da69b8b60fd10f2a"
+  },
+  {
+    "url": "img/apple-touch-icon-144x144.png",
+    "revision": "49406e4c73f2826420b8ac379011ec5d"
+  },
+  {
+    "url": "img/apple-touch-icon-152x152.png",
+    "revision": "de5cd7e41be0fce6310329418e968b21"
+  },
+  {
+    "url": "img/apple-touch-icon-57x57.png",
+    "revision": "6ec62df72c7b707d6357581f623cebfb"
+  },
+  {
+    "url": "img/apple-touch-icon-60x60.png",
+    "revision": "a0088227325566f4314cbaeb452b8c1e"
+  },
+  {
+    "url": "img/apple-touch-icon-72x72.png",
+    "revision": "c34b39db3dda846920d74d6f46a7c409"
+  },
+  {
+    "url": "img/apple-touch-icon-76x76.png",
+    "revision": "84f85420ad7c4cca71f7dee1d47d6bfa"
+  },
+  {
+    "url": "img/favicon-128.png",
+    "revision": "c9cc13291cd6935b6ec36a8448760d28"
+  },
+  {
+    "url": "img/favicon-16x16.png",
+    "revision": "6b24a09141f223c6a4a5add12d73206a"
+  },
+  {
+    "url": "img/favicon-196x196.png",
+    "revision": "6581a5d094908a82fb64b4a963c96658"
+  },
+  {
+    "url": "img/favicon-32x32.png",
+    "revision": "42f1d4f5425ec2ca817c577d6d17344e"
+  },
+  {
+    "url": "img/favicon-96x96.png",
+    "revision": "8ebc154f6ba2ae8225e4e38be7422251"
+  },
+  {
+    "url": "img/favicon.ico",
+    "revision": "10f4f4aadf0494ab506adcce6d0dd1c7"
+  },
+  {
+    "url": "img/mstile-144x144.png",
+    "revision": "49406e4c73f2826420b8ac379011ec5d"
+  },
+  {
+    "url": "img/mstile-150x150.png",
+    "revision": "cf96017aa3c583614e4094abdd4e8c4e"
+  },
+  {
+    "url": "img/mstile-310x150.png",
+    "revision": "a38d9fcf47cb34c6eec983e5f0345ab2"
+  },
+  {
+    "url": "img/mstile-310x310.png",
+    "revision": "8290f71d5d662ec3f39bd2ad290aa4ac"
+  },
+  {
+    "url": "img/mstile-70x70.png",
+    "revision": "c9cc13291cd6935b6ec36a8448760d28"
   },
   {
     "url": "index.html",
-    "revision": "d5269e5111a84b2d517f094e5cf8cb91"
+    "revision": "892e3c4cb4335e1d02d9b03fc27f055e"
   },
   {
     "url": "lib/angular-animate/angular-animate.min.js.map",
@@ -1432,11 +1504,11 @@ workboxSW.precache([
   },
   {
     "url": "manifest.json",
-    "revision": "de6bf602a98a7b89cd0363aa61aaf55f"
+    "revision": "0ed29e24f12ae2c471ddb4316d6b4212"
   },
   {
     "url": "templates/addCatch.html",
-    "revision": "a42d6a716e8020200c922a2d381087fc"
+    "revision": "f909f5b48d30c3d715aaba462169b21b"
   },
   {
     "url": "templates/catchLog.html",
@@ -1448,7 +1520,11 @@ workboxSW.precache([
   },
   {
     "url": "templates/inventory.html",
-    "revision": "3726371e6858cf6bb4be29a5652da5d8"
+    "revision": "b45ce1f7aaad96ae3e41bb6d1d567192"
+  },
+  {
+    "url": "templates/manifest.json",
+    "revision": "0a263ddbe6f1a30785c80116967b236a"
   },
   {
     "url": "templates/sales.html",
@@ -1483,11 +1559,11 @@ self.addEventListener('sync', function(event) {
           Lib.fetchPost(endpoint, catchObj);
         }).then(()=>{
           console.log("Queued Events Sent!");
-          resolve(db.events.clear());
-          self.registration.showNotification("Event Success", {
-            body: "Your event was sent successfully in the background!",
-            icon: "images/android-desktop.png",
-            badge: "images/cal.png"
+          resolve(db.catch.clear());
+          self.registration.showNotification("Success", {
+            body: "Your data was sent successfully in the background!",
+            icon: "img/ionic.png",
+            badge: "img/ionic.png"
           });
         });
     }catch(e){
@@ -1499,7 +1575,7 @@ self.addEventListener('sync', function(event) {
 
 
 self.addEventListener('push', function(event) {
-  var title = 'Request Sen!';
+  var title = 'Request Sent!';
   var body = 'You data was successfully sent!';
   var icon = 'img/ionic.png';
   var tag = 'simple-push-example-tag';

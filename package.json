@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "An Ionic project",
   "scripts": {
-    "serve": "ionic serve --lab",
+    "serve": "ionic serve",
+    "serve-lab": "ionic serve --lab",
     "build": "workbox inject:manifest",
     "deploy":"firebase deploy --only hosting"
   },

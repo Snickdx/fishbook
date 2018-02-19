@@ -3,10 +3,24 @@
   "short_name": "Fishbook",
   "start_url": "index.html",
   "display": "standalone",
-  "scope":".",
+  "background_color": "#22A7F0",
+  "theme_color": "#1ABC9C",
+  "orientation": "portrait",
+  "gcm_sender_id":"103953800507",
   "icons": [{
-    "src": "img/ionic.png",
-    "sizes": "128x128",
+    "src": "img/apple-touch-icon-144x144.png",
+    "sizes": "144x144",
     "type": "image/png"
-  }]
+  },
+    {
+      "src": "img/apple-touch-icon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    },
+    {
+      "src": "img/apple-touch-icon-310x310.png",
+      "sizes": "310x310",
+      "type": "image/png"
+    }
+  ]
 }
